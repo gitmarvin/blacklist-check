@@ -13,16 +13,16 @@ def getblacklist():
     sheet = blacklist_workbook[input('Sheet Name:')]
     targetcol = int(input('Read Column: '))
     maxrange = input('Max Range: ')
-    for i in range(targetcol, maxrange):
-        blacklist.append(sheet.cell(row=i, column=2).value)
+    for i in range(2, maxrange):
+        blacklist.append(sheet.cell(row=i, column=targetcol).value)
 
 def getchecklist():
     checklist_workbook = openpyxl.load_workbook(input('Checklist File Name: ') + '.xlsx')
     cl_sheet = checklist_workbook[input('Sheet Name: ')]
     targetcol = int(input('Read Column: '))
     maxrange = input('Max Range: ')
-    for i in range(targetcol, maxrange):
-        checklist.append(cl_sheet.cell(row=i, column=5).value)
+    for i in range(2, maxrange):
+        checklist.append(cl_sheet.cell(row=i, column=targetcol).value)
 
 def blacklistcheck():
     for i in blacklist:
